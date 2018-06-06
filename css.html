@@ -43,14 +43,16 @@
 
             /* 7. deepth, level로 엘리먼트 셀렉트 */
             .contants h1{
-                /* .contants h1에서 공백으로 하면 이하 전부다 셀렉팅 */
+                /* .contants 클래스 아래 모든 h1 셀렉팅 *
                  font-weight: lighter;
             }
 
             .contants > h1{
-                /* .contants h1에서 공백으로 하면 이하 전부다 셀렉팅 */
+                /* .contants 클래스 바로 아래 h1 셀렉팅 */
                 font-weight: lighter;
             }
+
+            /* body 아래 div 아래 h1 셀렉팅 */
             body > div > h1{
                 color: red;
             }
