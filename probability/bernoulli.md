@@ -1,88 +1,263 @@
 ## Bernoulli Distribution
+- 결과가 1(성공) 또는 0(실패) 두 가지의 경우만 나오는 것을 bernoulli trial이라 합니다.
+- 확률변수가 1,0 두 가지이기 때문에 pmf(확률질량함수)로 정의할 수 있다.
+- 1이 나올 확률을 theta, 0이 나올 확률을 1-theta
 
-**결과가 1 또는 0 과 같이 두 가지의 경우로 나오는 것을 Bernoulli trial이라 한다.**
 
 ```python
+import sympy
+```
 
-# 베르누이 분포
 
-# theta = 0.5인 경우
-theta = 0.5
+```python
+sympy.init_printing(use_latex='mathjax')
+```
+
+$$
+Bern(x;θ)=θ(1+x)/2(1−θ)(1−x)/2
+$$
+
+##### in Scipy
+
+
+```python
+%matplotlib inline
+```
+
+
+```python
+mpl.rcParams["font.family"]
+```
+
+
+
+
+    ['sans-serif']
+
+
+
+
+```python
+import matplotlib.font_manager as fm
+font_location = "C:\\Windows\Fonts\malgunbd.ttf"
+font_name = fm.FontProperties(fname=font_location).get_name()
+mpl.rc("font", family=font_name)
+```
+
+
+```python
+# p = 0.6 설정
+theta = 0.6
 rv = sp.stats.bernoulli(theta)
+```
 
-xx = [0, 1]
+
+```python
+rv.pmf(xx)
+```
+
+
+
+
+    array([0.4, 0.6])
+
+
+
+
+```python
+# pmf로 시각화 표현
+
+xx = [0,1]
 plt.bar(xx, rv.pmf(xx))
 plt.xlim(-1, 2)
 plt.ylim(0, 1)
 plt.xticks([0, 1], ["x=0", "x=1"])
-plt.xlabel("sample value")
+plt.xlabel("표본값")
 plt.ylabel("P(x)")
-plt.title("bern RV pmf")
+plt.title("베르누이 확률변수의 pmf")
 plt.show()
+```
 
-rv.pdf
 
-xx = np.linspace(0.99, 1.01, 100)
-pdf = rv.pdf(xx)
-plt.plot(xx, pdf)
-plt.show()
+![bernoulli (1)](/assets/bernoulli%20(1).png)
 
-x = rv.rvs(10, random_state=0)
+
+
+```python
+# rvs 메서드로 시뮬레이션 하기
+x = rv.rvs(100, random_state=0)
 x
+```
 
+
+
+
+    array([1, 0, 0, 1, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0,
+           1, 0, 1, 0, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 0, 1,
+           0, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1,
+           0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1,
+           1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 0, 1])
+
+
+
+
+```python
 sns.countplot(x)
-plt.title("bernoulli result")
-plt.xlabel("sample value")
+plt.title("베르누이 확률변수의 시뮬레이션 결과")
+plt.xlabel("표본값")
 plt.show()
+```
 
-y = rv.rvs(1000, random_state=1)
 
-sns.countplot(y)
-plt.title("bernoulli result")
-plt.xlabel("sample value")
-plt.show()
+![bernoulli (2)](/assets/bernoulli%20(2).png)
 
-theta = 0.9
-rv = sp.stats.bernoulli(theta)
 
-xx = [0, 1]
-plt.bar(xx, rv.pmf(xx))
-plt.xlim(-1, 2)
-plt.ylim(0, 1)
-plt.xticks([0, 1], ["x=0", "x=1"])
-plt.xlabel("sample value")
-plt.ylabel("P(x)")
-plt.title("bern RV pmf")
-plt.show()
 
-x1 = rv.rvs(10, random_state=0)
+```python
+# 이론적 확률 분포와 샘플 확률분포 동시비교1
+y = np.bincount(x, minlength=2) / float(len(x))
+y
+```
 
-sns.countplot(x1)
-plt.title("bernoulli result")
-plt.xlabel("sample value")
-plt.show()
 
-y1 = rv.rvs(1000, random_state=0)
 
-sns.countplot(y1)
-plt.title("bernoulli result")
-plt.xlabel("sample value")
-plt.show()
 
-X = np.bincount(x, minlength=2) / float(len(x))
+    array([0.38, 0.62])
 
-df = pd.DataFrame({"theory": rv.pmf(xx), "simulation": X})
-df.index = [0, 1]
+
+
+
+```python
+df = pd.DataFrame({"이론상":rv.pmf(xx), "샘플링 시뮬레이션결과":y})
 df
+```
 
-Y = np.bincount(y, minlength=2) / float(len(y))
 
-df = pd.DataFrame({"theory": rv.pmf(xx), "simulation": Y})
-df.index = [0, 1]
-df
 
-X1 = np.bincount(x, minlength=2) / float(len(x1))
 
-df = pd.DataFrame({"theory": rv.pmf(xx), "simulation": X1})
-df.index = [0, 1]
-df
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>샘플링 시뮬레이션결과</th>
+      <th>이론상</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.38</td>
+      <td>0.4</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.62</td>
+      <td>0.6</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+```python
+# 이론적 확률 분포와 샘플 확률분포 동시비교2
+df2 = df.stack().reset_index()
+df2.columns = ["표본값","유형","비율"]
+df2
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>표본값</th>
+      <th>유형</th>
+      <th>비율</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>샘플링 시뮬레이션결과</td>
+      <td>0.38</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0</td>
+      <td>이론상</td>
+      <td>0.40</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>샘플링 시뮬레이션결과</td>
+      <td>0.62</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>이론상</td>
+      <td>0.60</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+```python
+sns.barplot(x="표본값", y="비율", hue="유형", data=df2)
+plt.show()
+```
+
+
+![bernoulli (3)](/assets/bernoulli%20(3).png)
+
+### Bernoulli 의 특징값(모멘트)
+
+**확률변수가 1 또는 0일때에 아래와 같이 나타남
+
+- 기댓값
+$$
+E[X]=∑xiP(xi)=1⋅θ+0⋅(1−θ)=θ
+$$
+
+- 분산
+$$
+Var[X]=∑(xi−μ)2P(xi)=(1−θ)2⋅θ+(0−θ)2⋅(1−θ)=θ(1−θ)
+$$
