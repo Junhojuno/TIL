@@ -12,9 +12,9 @@
         /* :last-child도 마찬가지 입니다.  */
 
         /* body의 첫번째 엘리먼트로 .ds가 없고, div 안의 첫번째 엘리먼트가 없으므로 css가 적용되지 않음 */
-        .ds:first-child {
+        /* .ds:first-child {
             color: blue;
-        }
+        } */
         /* body의 마지막 엘리먼트로 .ds가 없고, div 안의 마지막 엘리먼트로 .ds가 없으므로 css가 적용되지 않음 */
         /* .ds:last-child {
             color: red;
@@ -31,16 +31,17 @@
         } */
 
         /* p 엘리먼트 안의 첫번째 엘리먼트로 span 엘리먼트가 있으므로 css 적용 */
-        /* span:first-child{
+        span:first-child{
             color: purple;
-        } */
+            font-weight: bold;
+        }
 
     </style>
 </head>
 
 <body>
 
-    <p class="sc" id="ds1">ds1</p>
+    <!-- <p class="sc" id="ds1">ds1</p>
     <p class="sc" id="ds2">ds2</p>
 
     <p class="ds ds1">ds1</p>
@@ -59,7 +60,7 @@
 
     <div>
         <h1>inner4</h1>
-    </div>
+    </div> -->
 
     <p class="ts"><span>Span1 </span><span>Span2</span></p>
 
