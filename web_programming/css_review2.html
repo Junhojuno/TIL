@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>DataScienceSchool</title>
+    <style media="screen">
+        /* #ds2,#ds3{ */
+        /* 1번의 ds2, ds3만 빨간색 글씨로~*/
+          /* color: red; */
+        /* } */
+
+        /* .ds1{ */
+          /* 2번의 ds1만 글자크고 상 우 간격 벌리기~ */
+          /* font-size: 24px;
+          margin: 5px, 10px; */
+        /* } */
+
+          /* .ds:not(.ds2){ */
+            /* 3번의 ds아래 ds2만빼고 글자색 파랗게~ */
+            /* color: blue; */
+          /* } */
+
+          /* .ds:first-child{ */
+            /* 3번의 ds클래스 아래 1번째 애기클래스만 글자 배경색 노랑~ */
+            /* background-color: yellow; */
+          /* } */
+
+          /* .ds:nth-child(3), .ds:nth-child(4){ */
+            /* 3번의 ds클래스 아래 3,4번째 애기클래스만 글자 배경색 노랑~ */
+            /* background-color: yellow; */
+          /* } */
+
+          /* .contents h1{ */
+            /* 공백은 contents클래스 아래 모든 h1 셀렉팅 */
+            /* font-weight: lighter; */
+          /* } */
+
+          /* .contents>h1{ */
+            /* contents클래스 바로 아래 h1 셀렉팅 */
+            /* font-weight: lighter; */
+          /* } */
+
+          body>div>h1{
+            /* body아래 div아래 h1 셀렉팅 */
+            color: red;
+          }
+
+
+
+
+
+    </style>
+  </head>
+  <body>
+    <!-- 1번  -->
+    <!-- <p id="ds1">dss1</p>
+    <p id="ds2">dss2</p>
+    <p id="ds3">dss3</p> -->
+
+
+    <!-- 2번 -->
+    <!-- <p class="ds1">dss1</p>
+    <p class="ds2">dss2</p>
+    <p class="ds3">dss3</p>
+    <p class="ds4">dss4</p> -->
+
+    <!-- 3번 -->
+    <!-- <p class="ds ds1">ds1</p>
+    <p class="ds ds2">ds2</p>
+    <p class="ds ds3">ds3</p>
+    <p class="ds ds4">ds4</p>
+    <p class="ds ds5">ds5</p> -->
+
+    <!-- 4번 -->
+    <div class="contents">
+      <h1>inner_1</h1>
+      <div class="txt">
+        <h1>inner_2</h1>
+      </div>
+    </div>
+
+  </body>
+</html>
