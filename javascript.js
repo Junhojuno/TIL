@@ -184,8 +184,11 @@ var user = {
 
 
 // OOP - 추상화, 캡슐화
-// Module이라는 객체가 이미 선언되어있으면
+// Module이라는 객체가 이미 선언되어있으면 Module 객체
+// Module변수에 대입되고, 없으면 {}에 대입
 var Module = Module || {};
+// _Modue 모듈에 setName, getName함수를 추가해줍니다.
+// Module에서 setName, getName함수 호출이 가능
 (function(_Module){
   var _name = 'juno';
 
@@ -198,3 +201,77 @@ var Module = Module || {};
   };
 })(Module);
 console.log(Module.getName());
+
+// 함수
+// 호이스팅 - hoisting : 변수가 함수보다 먼저 실행됨.(minus가 sum보다 먼저 실행됨)
+function sum(num1, num2){
+  return num1 + num2;
+}
+var result = sum(1,2);
+console.log(result);
+
+var minus = function(num1, num2){
+  return num1 - num2;
+};
+
+// 스코프
+var a = "dss1";
+function disp(){
+  a = "dss2"; // global variable
+  console.log(a); // dss2
+
+}
+disp();
+console.log(a); //dss2
+
+
+var a = "dss1";
+function disp(){
+  var a = "dss2"; // local variable
+  console.log(a); //dss2
+
+}
+disp();
+console.log(a); //dss1
+
+// 즉시 실행함수(익명함수)
+// 자바스크립트는 프론트엔드 언어입니다.
+// 여러분이 브라우져에서 함수를 마음대로 가져다가 쓸 수 있습니다
+// 이를 방지하기 위해 즉시실행함수, 익명함수를 사용합니다.
+(function(){
+  // 자바스크립트는 문자열 사용시 웬만하면 ' '를 사용해주세요
+  // html에서 ""를 사용하기 때문에 ''를 사용해줘야 충돌에러를 줄일 수 있습니다.
+  var name = 'juno';
+  var disp = function(){
+    console.log(name);
+  };
+  disp();
+})();
+// 위 코드와 아래코드는 같음.
+// but 아래처럼 코드를 짜면 web상에서 disp()사용될 수 있음.(외부인이 코드 접근 가능하게 됨)
+// 그래서 익명함수를 사용(보안강화)
+var name = 'juno';
+var disp = function(){
+  console.log(name);
+};
+disp();
+
+// callback (콜백함수)
+// 함수의 argument로 함수를 받아서 모든 코드를 실행한 후에
+// argument로 받은 함수를 실행
+function getData(callback, num1, num2){
+  var result = num1 + num2;
+  callback (result); // code가 끝나고 특정함수 실행
+}
+
+function disp(result){
+  console.log(result);
+}
+function sqrt(result){
+  console.log(result*result);
+}
+
+// 2와 3을 더하고 sqrt함수 실행결과값 출력
+getData(sqrt, 2,3); // 25
+
+// 클로져(팩토리패턴으로 객체 생성), 프로토타입, es6 문법
