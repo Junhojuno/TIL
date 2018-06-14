@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Daum</title>
+        <style media="screen">
+        /* 1. id selector */
+        /* #(id 명)으로 선택 */
+        /* 여러개는 ,로 구분 */
+        /* #ds2, #ds3{
+            color: red;
+        } */
+
+        /* 2. class selector */
+        /* .(class 명)으로 선택 */
+        /* element를 묶어서 같은 css적용 */
+        /* .ds1{
+            font-size: 24px;
+            margin: 5px 20px 10px 30px
+        } */
+
+        /* 3. not selector */
+        /* selector로 element 하나만 적용안되게 하고 싶다. */
+        /* .ds:not(.ds2){
+            color: blue;
+        } */
+
+        /* 4. first-child selector */
+        /* .ds:first-child{
+            background-color: yellow;
+        } */
+
+        /* 5. last-child selector */
+        /* .ds:last-child{
+            background-color: green;
+        } */
+
+        /* 6. nth-child selector */
+        /* .ds:nth-child(3), .ds:nth-child(4){
+            background-color: blue;
+        } */
+
+        /* 7. depth, level로 element select */
+        /* .contents h1{
+            font-weight: lighter;
+        } */
+
+        /* .contents > h1{
+            font-weight: lighter;
+        } */
+
+        body > div > h1{
+            color: red;
+        }
+
+
+
+
+
+
+
+        </style>
+    </head>
+    <body>
+        <!-- <p id="ds1">dss1</p>
+        <p id="ds2">dss2</p>
+        <p id="ds3">dss3</p> -->
+
+        <!-- <p class="ds1">dss1</p>
+        <p class="ds1">dss2</p>
+        <p class="ds2">dss3</p>
+        <p class="ds2">dss4</p> -->
+
+
+
+        <!-- <p class="ds ds1">dss1</p>
+        <p class="ds ds2">dss2</p>
+        <p class="ds ds3">dss3</p>
+        <p class="ds ds4">dss4</p>
+        <p class="ds ds5">dss5</p> -->
+
+        <div class="contents">
+            <h1>inner_1</h1>
+            <div class="txt">
+                <h1>inner_2</h1>
+            </div>
+        </div>
+
+
+    </body>
+</html>

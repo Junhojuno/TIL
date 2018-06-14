@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <!--
+        HTML은 마크업 언어입니다.
+        마크업 언어는 element(요소)로 구성이 되어있습니다.
+        element는 tag와 attribute로 구성이 되어있습니다.
+        element는 시작tag와 끝tag가 있습니다.
+        ex) <div></div>
+
+        XML이 대표적인 마크업 언어입니다.
+        Tag는 element의 일부로 <div>, <p>, <span>같은 것을 의미합니다.
+        attribute는 태그안의 key, value로 되어있는 데이터를 의미합니다.
+        attribute의 일부값으로 selector를 사용합니다. id, class를 사용합니다.
+
+        id : 페이지 내에서 유일한 값이어야 합니다.
+        class : 엘리먼트들을 그룹핑할때 사용합니다.
+
+        <div id="dss" class="dss8" dss="8"></div>
+        <div class="dss" dss="8"></div>
+     -->
+
+     <!--1.HEAD -->
+     <!--
+         HEAD는 총 6가지 종류의 태그가 있습니다. h1~h6,
+         숫자가 커질수록 크기가 줄어듭니다.
+     -->
+     <!--h${Heading}*6  -->
+     <h1>Heading</h1>
+     <h2>Heading</h2>
+     <h3>Heading</h3>
+     <h4>Heading</h4>
+     <h5>Heading</h5>
+     <h6>Heading</h6>
+
+    <!--2. p : 한줄의 문자열을 표현하기 위한 엘리먼트  -->
+    <p>
+        데이터 사이언스
+    </p>
+    <p>
+        패스트 캠퍼스
+    </p>
+    <!--3. span : 한 블럭의 문자열을 표현하기위한 엘리먼트 -->
+    <!-- span.s${span-tag-$@0}*3-->
+    <span class="s1">span-tag-0</span>
+    <span class="s2">span-tag-1</span>
+    <span class="s3">span-tag-2</span>
+
+    <!-- span.s${span-tag-$0}*3 -->
+    <span class="s1">span-tag-</span>
+    <span class="s2">span-tag-</span>
+    <span class="s3">span-tag-</span>
+
+    <!-- 4. pre : 줄바꿈이나 띄어쓰기가 적용되는 엘리먼트 -->
+    <p>
+        python
+        datascience
+    </p>
+
+    <pre>
+        python
+        datascience
+    </pre>
+
+    <!-- 5. b, strong : 강조, 굵은 글씨 -->
+    <p><b>강조, 굵은 글씨 </b></p>
+    <p><strong>강조, 굵은 글씨 </strong></p>
+
+    <!-- 6. i, em : 이탤릭체 -->
+    <p><i>강조, 굵은 글씨 </i></p>
+    <p><em>강조, 굵은 글씨 </em></p>
+    <p><strong><em>강조, 굵은 글씨 </em></strong></p>
+
+    <!-- 7. sub, sup : 아래첨자, 윗첨자 -->
+    <p>
+        아래첨자
+        <sub>
+            아래첨자
+        </sub>
+    </p>
+
+    <p>
+        윗첨자
+        <sup>
+            아래첨자
+        </sup>
+    </p>
+
+
+    <!-- 8. small, mark : 작은 글씨, 글자배경(노란색)-->
+    <p>
+        작은글씨
+        <small>
+            작은글씨
+        </small>
+    </p>
+
+    <p>
+        글자 배경이 <mark>노란색</mark>입니다
+    </p>
+
+    <!-- 9. del, ins : 삭제문자열, 언더라인 문자열 -->
+    <p>
+        삭제문자열
+        <del>
+            삭제문자열
+        </del>
+    </p>
+
+    <p>
+        언더라인 문자열 <ins>언더라인 문자열</ins>입니다
+    </p>
+
+    <!-- 10. code : 코드 -->
+    <code> print(1234)</code>
+
+    </body>
+</html>
