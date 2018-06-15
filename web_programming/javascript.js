@@ -13,7 +13,7 @@ console.log("data");
 // 모듈 : PascalCase(파스칼 케이스)
 // python 식별자 특수기호 : _
 // javascript 식별자 특수기호 : $, _
-// _name : private variable, function
+// _name : private variable, private function
 // $target : selector를 변수로 사용할때
 
 var $target = 1;
@@ -172,6 +172,7 @@ for(var key in obj){
   console.log(key, obj[key]);
 }
 
+// property : name, age, addr
 var user = {
   name: 'juno',
   age : 26,
@@ -274,4 +275,5 @@ function sqrt(result){
 // 2와 3을 더하고 sqrt함수 실행결과값 출력
 getData(sqrt, 2,3); // 25
 
+// 더 공부하고 싶다면....
 // 클로져(팩토리패턴으로 객체 생성), 프로토타입, es6 문법
